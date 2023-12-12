@@ -1,15 +1,23 @@
-html {
+* ,html {
     font-family: "Figtree", sans-serif;
     scroll-behavior: smooth;
+    margin: 0;
 }
 
 .heading {
     width: 600px;
     text-align: center;
-    margin: 0 auto;
+    margin: 100px auto 0;
     font-weight: 600;
     font-size: 40px;
     line-height: 1.25;
+}
+
+.highlight {
+    background-color: #8bc6ec;
+    background-image: linear-gradient(135deg, #244f36 0%, #2efa9e 100%);
+    -webkit-background-clip: text;
+    color: transparent;
 }
 
 .main {
@@ -19,36 +27,61 @@ html {
 }
 
 .navbar {
+    position: sticky;
+    top: 250px;
     width: 30%;
-    height: 375px;
+    height: 355px;
     padding-top: 16px;
-    overflow-y: scroll;
+    overflow: hidden;
     background-color: #f3f3f3;
     padding-right: 0;
 }
 
 .navbar .list_item {
-    margin-left: 37px;
+    margin-left: 39px;
     font-weight: 700;
+    color: #18764c;
 }
 
 .navbar .list {
+    margin-top: 10px;
     list-style: none;
 }
 
 .navbar .item {
     padding: 8px 0;
-    border-top: 1px solid #ccc;
+    width: 100%;
+    display: inline-block;
+    position: relative;
+    border-bottom: 1px solid #ccc;
 }
 
 .navbar .item:hover {
     cursor: pointer;
     margin-left: 5px;
     background-color: #e9e8e8;
-    transition: ease 0.1s;
+    transition: ease 0.3s;
 }
 
-.navbar .item a{
+.navbar .item::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -3px;
+    left: 0;
+    background-color: #18764c;
+    transform-origin: bottom right;
+    transition: transform 0.6s ease-out;
+}
+
+.navbar .item:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.navbar .item a {
     text-decoration: none;
     color: #000;
 }
@@ -79,7 +112,8 @@ html {
     margin-left: 30px;
 }
 
-.contend_heading {
-    color: #0661ac;
+.contend_heading,
+h3 {
+    color: #298f61;
     margin: 0;
 }
